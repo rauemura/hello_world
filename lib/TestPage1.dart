@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 
 class TestPage1 extends StatelessWidget {
+  String test1 = "Test1";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Test1"),
+          title: Text(test1),
         ),
         body: Center(
             child: Container(
                 color: Colors.redAccent,
-                child: Text("Test1", style: TextStyle(fontSize: 80)))));
+                child: Text(test1, style: TextStyle(fontSize: 80)))));
   }
 }
