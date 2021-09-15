@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class TestPage1 extends StatelessWidget {
-  String test1 = "Test1";
+class SampleStateless extends StatelessWidget {
+  String test1 = "StatelessPage";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -11,6 +11,6 @@ class TestPage1 extends StatelessWidget {
         body: Center(
             child: Container(
                 color: Colors.redAccent,
-                child: Text(test1, style: TextStyle(fontSize: 80)))));
+                child: Text(test1, style: TextStyle(fontSize: 40)))));
   }
 }

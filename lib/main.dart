@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:hello_world/TestPage1.dart';
+import 'package:hello_world/SampleStateless.dart';
+import 'package:hello_world/SampleStateful.dart';
 import 'package:hello_world/TestPage2.dart';
 import 'package:hello_world/MultiplesHighlight.dart';
 
 void main() {
   runApp(MyApp());
 }
+
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-
         primarySwatch: Colors.blue,
       ),
       home: MyHomePage(title: 'Flutter Demo Home Page'),
@@ -34,8 +35,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
   // ボトムメニューの遷移先画面
   var _pages = [
-    TestPage1(),
-    TestPage2(),
+    SampleStateless(),
+    SampleStateful(),
+    //TestPage2(),
     MultiplesHighlight(),
   ];
   @override
@@ -49,9 +51,10 @@ class _MyHomePageState extends State<MyHomePage> {
     _pageController.dispose();
   }
 
+  //実は要らなそう↓
   void _onPageChanged(int index) {
     setState(() {
-     // _selectedIndex = index;
+      // _selectedIndex = index;
     });
   }
 
