@@ -5,23 +5,53 @@ class SampleStateful extends StatefulWidget {
   _SampleStatefulState createState() => _SampleStatefulState();
 }
 
-/*
- * 大きなグリッドとプルダウンのみの画面
- * 大きなグリッドには1~99までの数字を並べる
- * プルダウンには、nの倍数と書かれたリストを表示する。
- * プルダウンで選択すると、適合しているグリッドの数字がハイライトされるような仕掛け
- * 
-*/
 class _SampleStatefulState extends State<SampleStateful> {
+  bool _isEnabled = false;
+  EdgeInsets _padding = EdgeInsets.all(0);
   @override
   Widget build(context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text('StatefulPage'),
+      appBar: AppBar(
+        title: Text('StatefulPage'),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.refresh),
+        onPressed: () {
+          changeShape();
+        },
+      ),
+      body: Center(
+        child: AnimatedContainer(
+          alignment: Alignment.center,
+          padding: _padding,
+          child: Container(
+            width: 200,
+            height: 200,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: Colors.black,
+            ),
+          ),
+          color: Colors.blue,
+          curve: Curves.easeIn,
+          duration: Duration(
+            milliseconds: 400,
+          ),
+          height: 300,
+          width: 300,
         ),
-        body: Center(
-            child: Container(
-                color: Colors.redAccent,
-                child: Text("StatefulPage", style: TextStyle(fontSize: 40)))));
+      ),
+    );
   }
+
+  void changeShape() {
+    setState(() {
+      _isEnabled = !_isEnabled;
+      _padding = _isEnabled ? EdgeInsets.all(100) : EdgeInsets.all(0);
+    });
+  }
+}
+
+Widget hoge() {
+  return Container();
 }

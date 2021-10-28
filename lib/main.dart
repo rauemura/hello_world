@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hello_world/SampleStateless.dart';
 import 'package:hello_world/SampleStateful.dart';
-import 'package:hello_world/TestPage2.dart';
+import 'package:hello_world/SearchingPage.dart';
+import 'package:hello_world/ScrapingPage.dart';
+import 'package:hello_world/WebViewPage.dart';
 import 'package:hello_world/MultiplesHighlight.dart';
 
 void main() {
@@ -37,8 +39,12 @@ class _MyHomePageState extends State<MyHomePage> {
   var _pages = [
     SampleStateless(),
     SampleStateful(),
-    //TestPage2(),
     MultiplesHighlight(),
+    //TestPage2(),
+    //ScrapingPage(),
+    //SearchingPage(),
+
+    //WebViewPage(),
   ];
   @override
   void initState() {
@@ -51,20 +57,12 @@ class _MyHomePageState extends State<MyHomePage> {
     _pageController.dispose();
   }
 
-  //実は要らなそう↓
-  void _onPageChanged(int index) {
-    setState(() {
-      // _selectedIndex = index;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         body: PageView(
             controller: _pageController,
             scrollDirection: Axis.vertical,
-            //onPageChanged: _onPageChanged,
             children: _pages));
   }
 }
